@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- 主页面 -->
+    <div id="main-page" class="page active-page">
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <div class="ar-button" onclick="handleArClick()">AR</div>
+        </div>
+
+        <div class="section-title">Trending Agenda</div>
+        <div class="grid-container">
+            <div class="agenda-box" style="background: #FF6B6B;">
+                <div class="agenda-title">Agenda A</div>
+                <div class="agenda-desc">One Day in Disney</div>
+            </div>
+            <div class="agenda-box" style="background: #4ECDC4;">
+                <div class="agenda-title">Agenda B</div>
+                <div class="agenda-desc">Tsim Sha Tsui-Shopping Paradise</div>
+            </div>
+            <div class="agenda-box" style="background: #FFD93D;">
+                <div class="agenda-title">Agenda C</div>
+                <div class="agenda-desc">Two Days on Lamma Island</div>
+            </div>
+        </div>
+
+        <div class="section-title">Posts</div>
+        <div class="grid-container">
+            <img src="Post1.jpg" class="post-image" alt="14 MUST-READ TIPS FOR YOUR FIRST TIME TO HONG KONG">
+            <img src="Post2.jpg" class="post-image" alt="行李寄存及送 Baggage Storage and Delivery">
+            <img src="Post3.jpg" class="post-image" alt="My Fab Fifties Live HONGKONG FOR THE FIRST TIME">
+        </div>
+    </div>
+
+    <!-- Trip Planner1 页面 -->
+    <div id="trip1-page" class="page">
+        <button class="plan-button" style="margin: 20px;" onclick="showTrip2()">Start a new trip</button>
+        <div class="section-title">Agendas Created</div>
+        <div class="grid-container">
+            <div class="agenda-box" style="background: var(--trip-color);">Trip 1 (Click for more info)</div>
+            <div class="agenda-box" style="background: var(--hunt-color);">Trip 2 (Click for more info)</div>
+        </div>
+        <div class="section-title">Calendar</div>
+        <img src="calender.jpg" class="calendar-image" alt="Calendar">
+    </div>
+
+    <!-- Trip Planner2 页面 -->
+    <div id="trip2-page" class="page">
+        <div class="trip-form">
+            <h2>What's your ideal trip</h2>
+            <input type="number" class="form-input" placeholder="Number of Days">
+            <input type="text" class="form-input" placeholder="Date (MM/DD/YYYY)">
+            <input type="number" class="form-input" placeholder="Budget">
+            <input type="number" class="form-input" placeholder="Number of People">
+            <input type="text" class="form-input" placeholder="Style">
+            
+            <!-- 机器人对话 -->
+            <div class="chat-container">
+                <div class="chat-avatar">
+                    <img src="robot.jpg" class="avatar" alt="Robot Avatar">
+                </div>
+                <div class="speech-bubble">
+                    What's the purpose of your trip
+                </div>
+            </div>
+            
+            <!-- 用户回复 -->
+            <div class="chat-container user-chat">
+                <div class="speech-bubble user-speech-bubble">
+                    <div class="option-container">
+                        <input type="radio" id="fun" name="purpose" class="option-input">
+                        <label for="fun">For Fun</label>
+                    </div>
+                    <div class="option-container">
+                        <input type="radio" id="work" name="purpose" class="option-input">
+                        <label for="work">For Work</label>
+                    </div>
+                    <div class="option-container">
+                        <input type="radio" id="other" name="purpose" class="option-input">
+                        <label for="other">Other:</label>
+                        <input type="text" id="other-text" class="other-input" disabled>
+                    </div>
+                </div>
+                <div class="chat-avatar">
+                    <img src="smiley.jpg" class="avatar" alt="User Avatar">
+                </div>
+            </div>
+            
+            <div class="plan-button2" onclick="showPage('trip3-page')">Plan Now!</div>
+        </div>
+    </div>
+    <!-- Loading Page -->
+    <div id="loading-page">
+        <div class="spinner"></div>
+        <div class="loading-text">Planning Your Trip...</div>
+    </div>
+
+    <!-- Trip Planner3 页面 -->
+    <div id="trip3-page" class="page">
+        <div class="agenda-header">Agenda</div>
+        
+        <div class="day-section">
+            <div>Day 1</div>
+            <div class="time-place">
+                <span>10am-12am</span>
+                <div>
+                    <span>Lamma Island Village Hiking Tour</span>
+                    <button class="book-now" onclick="handleBookNow()">Book Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider">. . .</div>
+        
+        <div class="companion-section">
+            <div class="companion-title">Finding a Companion?</div>
+            <div class="companion-users">
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div>Jack</div>
+                </div>
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div>Daisy</div>
+                </div>
+                <div class="user-card">
+                    <div class="user-avatar">👤</div>
+                    <div>Max</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="related-agenda">
+            <div class="companion-title">Other Related Agenda</div>
+            <div class="related-trips">
+                <div class="trip-card">One Day on Lamma Island</div>
+                <div class="trip-card">A thrilling journey on Po Tai Island</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="store-page" class="page">
+        <div class="store-page">
+            <div class="engagement-points">
+                Engagement Points: 615<span class="points-dot"></span>
+            </div>
+            
+            <!-- Coupons部分 -->
+            <div class="store-section">
+                <div class="section-title">Coupons</div>
+                <div class="items-container">
+                    <div class="store-item">
+                        <img src="coupon1.jpg" class="item-image" alt="Coupon 1">
+                        <div class="item-price">50<span class="price-dot"></span></div>
+                    </div>
+                    <div class="store-item">
+                        <img src="coupon2.jpg" class="item-image" alt="Coupon 2">
+                        <div class="item-price">60<span class="price-dot"></span></div>
+                    </div>
+                    <div class="store-item">
+                        <img src="coupon3.jpg" class="item-image" alt="Coupon 3">
+                        <div class="item-price">80<span class="price-dot"></span></div>
+                    </div>
+                    <div class="more-items">...</div>
+                </div>
+            </div>
+            
+            <!-- Gifts部分 -->
+            <div class="store-section">
+                <div class="section-title">Gifts</div>
+                <div class="items-container">
+                    <div class="store-item">
+                        <img src="toothbrush.jpg" class="item-image" alt="Toothbrush">
+                        <div class="item-price">550<span class="price-dot"></span></div>
+                    </div>
+                    <div class="store-item">
+                        <img src="earphone.jpg" class="item-image" alt="Earphone">
+                        <div class="item-price">1080<span class="price-dot"></span></div>
+                    </div>
+                    <div class="store-item">
+                        <img src="football.jpg" class="item-image" alt="Soccer">
+                        <div class="item-price">400<span class="price-dot"></span></div>
+                    </div>
+                    <div class="more-items">...</div>
+                </div>
+            </div>
+            
+            <!-- Decorations部分 -->
+            <div class="store-section">
+                <div class="section-title">Decorations</div>
+                <div class="items-container">
+                    <div class="store-item">
+                        <img src="decoration1.jpg" class="item-image" alt="Decoration 1">
+                        <div class="item-price">50<span class="price-dot"></span></div>
+                    </div>
+                    <div class="store-item">
+                        <img src="decoration2.jpg" class="item-image" alt="Decoration 2">
+                        <div class="item-price">50<span class="price-dot"></span></div>
+                    </div>
+                    <div class="store-item">
+                        <img src="decoration3.jpg" class="item-image" alt="Decoration 3">
+                        <div class="item-price">50<span class="price-dot"></span></div>
+                    </div>
+                    <div class="more-items">...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scavenger1页面 -->
+    <div id="scavenger1-page" class="page">
+        <div class="scavenger-content">
+        <h2>Lantau Island</h2>
+        <img src="island.jpg" class="scavenger-image">
+        <button class="green-button" onclick="handleClick(this)">Register Now</button>
+        <div class="time-info">
+            <p>Period: 1/5/2025 ~ 31/5/2025</p>
+            <p>Time limit: 3 days within launch</p>
+        </div>
+        <div class="divider"></div>
+        <h3>On-going Challenge</h3>
+        <div class="challenge-card">
+            <h4>HKU - April</h4>
+            <button class="green-button" onclick="showPage('scavenger2-page')">Start Challenge</button>
+            <div class="time-info">
+            <p>Period: 1/4/2025 ~ 30/4/2025</p>
+            <p>Time limit: 2 days within launch</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <!-- Scavenger2页面 -->
+    <div id="scavenger2-page" class="page">
+        <div class="map-container">
+        <div class="map-header">
+            <h2>Google Map</h2>
+            <button class="microscope-btn" onclick="toggleFullMap()">🔍</button>
+        </div>
+        <img src="map1.jpg" class="scavenger-image" id="main-map">
+        <div id="full-map" class="full-map hidden" onclick="toggleFullMap()">
+            <img src="map2.jpg" class="full-map-image">
+        </div>
+        </div>
+        <div class="challenge-content">
+        <h3 class="underline">April Challenge</h3>
+        <h4>Checkpoints (Level 3) - Stanley Ho Region</h4>
+        <div class="checkpoint-list">
+            <div class="checkpoint yellow" onclick="showPage('scavenger3-page')">
+            <span>3.3</span>
+            <p> Go to the location shown in Google Map</p>
+            </div>
+            <div class="checkpoint green">
+            <span>3.2 </span>
+            <p> Completed</p>
+            </div>
+            <div class="checkpoint green">
+            <span>3.1 </span>
+            <p> Completed</p>
+            </div>
+        </div>
+        <p class="break-text">Need a break before the next challenge?</p>
+        <div class="divider"></div>
+        <div class="sponsored">
+            <p>Pthai Restaurant<span class="sponsored-mark">Sponsored</span></p>
+            <p>Bob Milk Tea<span class="sponsored-mark">Sponsored</span></p>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Scavenger3页面 -->
+    <div id="scavenger3-page" class="page">
+        <div class="ar-container">
+        <div class="ar-header">
+            <button class="ar-button" onclick="handleClick(this)">
+            <span class="ar-icon">👁️</span> AR模式
+            </button>
+            <div class="ar-points">
+            <span>当前积分: 615</span>
+            <span class="points-dot"></span>
+            </div>
+        </div>
+        
+        <div class="ar-viewport" onclick="showPage('scavenger4-page')">
+            <img src="ar.png" class="ar-image">
+            <div class="ar-overlay">
+            <div class="scanning-animation"></div>
+            <p class="tap-hint">点击屏幕激活AR</p>
+            </div>
+        </div>
+        
+        <div class="ar-instruction">
+            <div class="instruction-card">
+            <div class="dino-icon">🦖</div>
+            <h3>发现恐龙!</h3>
+            <p>There is a dinosaur in front of you</p>
+            </div>
+            
+            <div class="action-area">
+            <div class="shake-prompt">
+                <img src="shake.gif" class="shake-icon">
+                <p>摇动手机击败它!</p>
+            </div>
+            <div class="action-tip">
+                <span class="tip-icon">💡</span>
+                <p>Tap AR to see it. Shake your phone to defeat it</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    
+    <!-- Scavenger4页面 -->
+    <div id="scavenger4-page" class="page">
+        <div class="completion-container">
+        <!-- 成就徽章 -->
+        <div class="achievement-badge">
+            <div class="badge-circle">
+            <span class="badge-icon">🏆</span>
+            </div>
+            <div class="badge-ribbon"></div>
+            <span class="badge-text">Checkpoint 3.3</span>
+        </div>
+        
+        <!-- 完成状态 -->
+        <div class="completion-status">
+            <div class="checkmark-animation">
+            <svg class="checkmark" viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            </div>
+            <h3 class="completion-title">挑战完成!</h3>
+            <p class="completion-subtitle">恭喜您成功击败恐龙!</p>
+        </div>
+        
+        <!-- 奖励卡片 -->
+        <div class="reward-card">
+            <div class="reward-header">
+            <span class="reward-icon">🎁</span>
+            <h4>获得商店优惠券</h4>
+            </div>
+            <p class="reward-description">您已获得 XXX 商店的独家优惠券</p>
+            <img src="coupon1.jpg" class="coupon-image">
+            <div class="reward-details">
+            <span class="discount-tag">15% OFF</span>
+            <span class="valid-date">有效期至 2025/12/31</span>
+            </div>
+        </div>
+        
+        <!-- 稀有度标识 -->
+        <div class="rarity-indicator">
+            <div class="stars">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            </div>
+            <p class="rarity-text">仅有 3% 的玩家获得此奖励</p>
+            <button class="share-button" onclick="shareAchievement()">
+            <span class="share-icon">📤</span> 分享成就
+            </button>
+        </div>
+        </div>
+    </div>
+
+    <!-- 设置页面 -->
+    <div id="settings-page" class="page">
+        <div class="settings-header">
+            <div class="profile-name">DucktapeDulce</div>
+            <div class="profile-status">Travel Enthusiast</div>
+        </div>
+        
+        <div class="settings-content">
+            <div class="profile-section">
+                <div class="profile-avatar">DD</div>
+                <div class="profile-info">
+                    <div class="points-display">
+                        Engagement Points: 615<span class="points-dot"></span>
+                    </div>
+                    <div style="margin-top: 5px;">Contacts: 63</div>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-icon">👤</div>
+                    <div>Name</div>
+                </div>
+                <div>DucktapeDulce</div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-icon">♂♀</div>
+                    <div>Sex</div>
+                </div>
+                <div class="sex-selector">
+                    <div class="sex-option male selected">♂</div>
+                    <div class="sex-option female">♀</div>
+                </div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-icon">🌍</div>
+                    <div>Region</div>
+                </div>
+                <div>Hong Kong Island</div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-icon">🔔</div>
+                    <div>Notifications</div>
+                </div>
+                <div class="settings-button">⚙️</div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-icon">🔒</div>
+                    <div>Privacy</div>
+                </div>
+                <div class="settings-button">⚙️</div>
+            </div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-icon">🔄</div>
+                    <div>Sync Data</div>
+                </div>
+                <div class="settings-button">⚙️</div>
+            </div>
+            
+            <div class="settings-item" style="border-bottom: none;">
+                <div class="settings-label">
+                    <div class="settings-icon">❓</div>
+                    <div>Help & Support</div>
+                </div>
+                <div class="settings-button">⚙️</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="nav-container">
+        <div class="nav-item trip-item" onclick="showPage('trip1-page')">Trip Planner</div>
+        <div class="nav-item hunt-item" onclick="showPage('scavenger1-page')">Scavenger Hunt</div>
+        <div class="nav-item home-item" onclick="showPage('main-page')">🏠 Home</div>
+        <div class="nav-item store-item" onclick="showPage('store-page')">Store</div>
+        <div class="nav-item settings-item" onclick="showPage('settings-page')">Settings</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
