@@ -1,1232 +1,291 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-language="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Planner</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script2.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Haikong Lu — undergraduate researcher at HKU XLang Lab working on Vision-Language-Action models, computer-using agents, and embodied AI.">
+  <meta name="theme-color" content="#f3f2ec">
+  <meta property="og:title" content="Haikong Lu — Undergraduate Researcher">
+  <meta property="og:description" content="Researching reliable and generalizable AI systems for embodied intelligence at HKU XLang Lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haikong-lu1206.github.io/">
+  <meta property="og:image" content="https://haikong-lu1206.github.io/assets/osworld-placeholder.svg">
+  <title>Haikong Lu — Undergraduate Researcher</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Main Page -->
-    <div id="main-page" class="page active-page">
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search...">
-            <div class="ar-button" onclick="handleArClick()">AR</div>
-        </div>
+  <a class="skip-link" href="#main-content">
+    <span class="lang lang-en">Skip to content</span>
+    <span class="lang lang-zh">跳至主要内容</span>
+  </a>
 
-        <div class="section-title">Influencers</div>
-        <div class="influencers-divider"></div>
-        <div class="follower-grid">
-            <!-- 用户1 -->
-            <div class="user-card">
-                <div class="avatar" style="background-image: url('user4.jpg')"></div>
-                <div class="user-name">Sarah</div>
-            </div>
-            <!-- 用户2 -->
-            <div class="user-card">
-                <div class="avatar" style="background-image: url('user2.jpg')"></div>
-                <div class="user-name">Eline</div>
-            </div>
-            <!-- 用户3 -->
-            <div class="user-card">
-                <div class="avatar" style="background-image: url('user3.jpg')"></div>
-                <div class="user-name">John</div>
-            </div>
-        </div>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="wordmark" href="#top" aria-label="Haikong Lu — Home">
+        <span class="wordmark-mark" aria-hidden="true">HL</span>
+        <span>Haikong Lu</span>
+      </a>
 
-        <div class="section-title">Trending Agenda</div>
-        <div class="grid-container">
-            <div class="agenda-box" style="background: #FF6B6B;">
-                <div class="agenda-title">Agenda A</div>
-                <div class="agenda-desc">One Day in Disney</div>
-            </div>
-            <div class="agenda-box" style="background: #4ECDC4;">
-                <div class="agenda-title">Agenda B</div>
-                <div class="agenda-desc">Shopping Paradise</div>
-            </div>
-            <div class="agenda-box" style="background: #FFD93D;">
-                <div class="agenda-title">Agenda C</div>
-                <div class="agenda-desc">Lamma Island Wonder</div>
-            </div>
-        </div>
-    
-    <!-- 修改index2.html中的Posts部分 -->
-        <div class="section-title">Posts</div>
-        <div class="grid-container">
-            <!-- Post 1 -->
-            <div class="post-container">
-                <img src="Post1.jpg" class="post-image" alt="...">
-                <div class="post-actions">
-                    <button class="like-btn" onclick="toggleLike(this, 200)">❤️ <span class="like-count">200</span></button>
-                    <button class="share-btn" onclick="sharePost()">📤 Share</button>
-                </div>
-            </div>
-            <!-- Post 2 -->
-            <div class="post-container">
-                <img src="Post2.jpg" class="post-image" alt="...">
-                <div class="post-actions">
-                    <button class="like-btn" onclick="toggleLike(this, 124)">❤️ <span class="like-count">124</span></button>
-                    <button class="share-btn" onclick="sharePost()">📤 Share</button>
-                </div>
-            </div>
-            <!-- Post 3 -->
-            <div class="post-container">
-                <img src="Post3.jpg" class="post-image" alt="...">
-                <div class="post-actions">
-                    <button class="like-btn" onclick="toggleLike(this, 341)">❤️ <span class="like-count">341</span></button>
-                    <button class="share-btn" onclick="sharePost()">📤 Share</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 修改index2.html中的发布页面部分 -->
-        <div id="create-post-page" class="page">
-            <div class="post-editor">
-                <div class="post-header">
-                    <button class="back-button" onclick="showPage('main-page')">←</button>
-                    <h2>New Post</h2>
-                    <button class="publish-button" onclick="submitPost()">Share</button>
-                </div>
-                <div class="post-content">
-                    <div class="image-upload-area" id="image-upload-area">
-                        <span class="upload-icon">+</span>
-                        <span class="upload-text">Add Photos</span>
-                        <input type="file" id="post-image" accept="image/*" class="form-input" multiple>
-                    </div>
-                    <div class="image-preview" id="image-preview"></div>
-                    <div class="post-caption">
-                        <textarea class="form-input" placeholder="Write a caption..." rows="4"></textarea>
-                        <div class="caption-tools">
-                            <span>🔠</span>
-                            <span>😊</span>
-                            <span>#️⃣</span>
-                            <span>@️⃣</span>
-                        </div>
-                    </div>
-                    <div class="post-options">
-                        <div class="option-item">
-                            <span>📍</span>
-                            <span>Add Location</span>
-                        </div>
-                        <div class="option-item">
-                            <span>👥</span>
-                            <span>Tag People</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    <div id="agenda-detail-page" class="page">
-        <!-- 头部 -->
-        <div class="agenda-header">
-            <button class="back-button" onclick="showPage('main-page')">←</button>
-            <div class="action-stats">
-                <span class="like-stat">❤️ 8940</span>
-                <span class="share-stat">📤 2924</span>
-            </div>
-        </div>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#research">
+          <span class="lang lang-en">Research</span>
+          <span class="lang lang-zh">研究方向</span>
+        </a>
+        <a href="#publications">
+          <span class="lang lang-en">Publications</span>
+          <span class="lang lang-zh">论文</span>
+        </a>
+        <a href="#education">
+          <span class="lang lang-en">Education</span>
+          <span class="lang lang-zh">教育经历</span>
+        </a>
+        <a href="#contact">
+          <span class="lang lang-en">Contact</span>
+          <span class="lang lang-zh">联系</span>
+        </a>
+      </nav>
 
-        <!-- 主体内容 -->
-        <div class="agenda-content">
-            <!-- 付费标识 -->
-            <div class="pay-badge">
-                <span>Day 1</span>
-            </div>
-
-            <!-- 时间地点 -->
-            <div class="time-section">
-                <div class="time-block">
-                    <h3>Morning Session</h3>
-                    <p>10:00 AM - 12:00 PM</p>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span>Explore <strong>Main Street, U.S.A</strong>. 
-                            Start with the iconic Main Street, U.S.A., where you can enjoy the charming architecture and take memorable photos.</span>
-                    </div>
-                </div>
-
-                <div class="time-block">
-                    <h3>Afternoon Session</h3>
-                    <p>12:00 PM - 2:00 PM</p>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span>Visit <strong>Fantasyland</strong>. 
-                            Must-see attractions include:
-                            It’s a Small World: A classic Disney ride that takes you on a boat ride around the world.
-                            The Many Adventures of Winnie the Pooh: A gentle, honey-themed ride.
-                            </span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 图片展示 -->
-            <div class="photo-gallery">
-                <img src="HKdisney.jpg" class="main-photo" alt="Venue preview">
-                <!--<div class="thumbnail-container">
-                    <img src="photo-thumb1.jpg" class="thumbnail">
-                    <img src="photo-thumb2.jpg" class="thumbnail">
-                    <img src="photo-thumb3.jpg" class="thumbnail">
-                </div>-->
-            </div>
-
-            <!-- 描述 -->
-            <div class="description">
-                <h2>About HK Disneyland</h2>
-                <p>Hong Kong Disneyland offers magical adventures, thrilling rides, and unforgettable moments in a vibrant, family-friendly atmosphere.</p>
-            </div>
-
-            <!-- 相关推荐 -->
-            <div class="related-agendas">
-                <h3>Recommended Experiences</h3>
-                <div class="agenda-card">
-                    <div class="card-time">2:00 PM - 4:00 PM</div>
-                    <div class="card-title">Head to Adventureland. Try out:
-                        <strong>Jungle Cruise</strong>: A fun and humorous boat ride through the jungle.
-                        <strong>Tarzan’s Treehouse:</strong> An interactive attraction where you can explore the treehouse of Tarzan.</div>
-                </div>
-                <div class="agenda-card">
-                    <div class="card-time">5:00 PM - 7:00 PM</div>
-                    <div class="card-title">Enjoy the nighttime spectacular, "Disney in the Stars⭐," a fireworks and projection show that lights up the sky.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 底部操作栏 -->
-        <div class="action-bar">
-            <button class="save-agenda-btn" onclick="addToPersonal()">
-                📅 Add to My Agenda
-            </button>
-            <button class="purchase-btn" onclick="handlePayment()">
-                Unlock Full Access (10 Engagement Points)
-            </button>
-        </div>
-    </div>
-
-    <div id="agenda-b-page" class="page">
-        <!-- Header -->
-        <div class="agenda-header">
-            <button class="back-button" onclick="showPage('main-page')">←</button>
-            <div class="action-stats">
-                <span class="like-stat">❤️ 10318</span>
-                <span class="share-stat">📤 5621</span>
-            </div>
-        </div>
-    
-        <!-- Content -->
-        <div class="agenda-content">
-            <div class="pay-badge">
-                <span>Modern Hong Kong</span>
-            </div>
-    
-            <!-- Morning Section -->
-            <div class="time-section">
-                <div class="time-block">
-                    <h3>Morning: High-End Shopping</h3>
-                    <p>09:00 AM - 12:00 PM</p>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Breakfast at Elephant Grounds (Wan Chai)</strong> → Great coffee and avocado toast. Best way to start your day!</span>
-                    </div>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Shop at Causeway Bay (Times Square, Sogo)</strong> → Luxury brands and local fashion. "It's literally a shopping paradise."</span>
-                    </div>
-                </div>
-    
-                <!-- Afternoon Section -->
-                <div class="time-block">
-                    <h3>Afternoon: Skyline Views</h3>
-                    <p>01:00 PM - 05:00 PM</p>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Lunch at Din Tai Fung (TST)</strong> → Famous for xiao long bao, noodles and other Chinese cuisines.</span>
-                    </div>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Sky100 Observation Deck</strong> → 360° views of Hong Kong, explore the most of Hong Kong and take unforgettable photos.</span>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Photo Gallery -->
-            <div class="photo-gallery">
-                <img src="kimshazui.jpg" class="main-photo" alt="Tsim Sha Tsui skyline">
-            </div>
-    
-            <!-- Description -->
-            <div class="description">
-                <h2>About Tsim Sha Tsui</h2>
-                <p>A shopper's paradise with luxury malls, harborfront views, and vibrant nightlife. Perfect for fashion lovers and Instagram enthusiasts.</p>
-            </div>
-    
-            <!-- Related Recommendations -->
-            <div class="related-agendas">
-                <h3>Recommended Extensions</h3>
-                <div class="agenda-card" onclick="showPage('agenda-a-page')">
-                    <div class="card-time">Evening Option</div>
-                    <div class="card-title">Drinks at OZONE (Ritz-Carlton) → Highest bar in the world!</div>
-                </div>
-                <div class="agenda-card" onclick="showPage('agenda-c-page')">
-                    <div class="card-time">Next Day</div>
-                    <div class="card-title">Escape to Lamma Island for a nature retreat.</div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Action Bar -->
-        <div class="action-bar">
-            <button class="save-agenda-btn" onclick="addToPersonal()">📅 Add to My Agenda</button>
-            <button class="purchase-btn" onclick="handlePayment()">Unlock Full Access (10 Points)</button>
-        </div>
-    </div>
-
-    <div id="agenda-c-page" class="page">
-        <!-- Header -->
-        <div class="agenda-header">
-            <button class="back-button" onclick="showPage('main-page')">←</button>
-            <div class="action-stats">
-                <span class="like-stat">❤️ 8740</span>
-                <span class="share-stat">📤 2500</span>
-            </div>
-        </div>
-    
-        <!-- Content -->
-        <div class="agenda-content">
-            <div class="pay-badge">
-                <span>Day 1 & 2</span>
-            </div>
-    
-            <!-- Day 1 Section -->
-            <div class="time-section">
-                <div class="time-block">
-                    <h3>Day 1: Beaches & Seafood</h3>
-                    <p>10:00 AM - 05:00 PM</p>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Ferry to Yung Shue Wan</strong> → Scenic 30-minute ride from Central. Experience the rocky ferry journey.</span>
-                    </div>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Hike to Hung Shing Yeh Beach</strong> → Crystal-clear waters and sandy shores. A great getaway place to ditch all worries.</span>
-                    </div>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Dinner at Rainbow Seafood</strong> → Fresh squid and garlic prawns. The freshest seafood you can get in Hong Kong.</span>
-                    </div>
-                </div>
-    
-                <!-- Day 2 Section -->
-                <div class="time-block">
-                    <h3>Day 2: Fishing Villages & Hiking</h3>
-                    <p>09:00 AM - 04:00 PM</p>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Explore Sok Kwu Wan</strong> → Traditional fishing village. See different sides of Hong Kong and try fishing!</span>
-                    </div>
-                    <div class="location">
-                        <span class="pin-icon">📍</span>
-                        <span><strong>Hike to Lamma Winds</strong> → Panoramic views from the wind turbine. Picturesque scenaries along the way!</span>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Photo Gallery -->
-            <div class="photo-gallery">
-                <img src="lamma.jpg" class="main-photo" alt="Lamma Island beach">
-            </div>
-    
-            <!-- Description -->
-            <div class="description">
-                <h2>About Lamma Island</h2>
-                <p>A car-free island with hiking trails, seafood restaurants, and bohemian vibes. Ideal for nature lovers and slow travel.</p>
-            </div>
-    
-            <!-- Related Recommendations -->
-            <div class="related-agendas">
-                <h3>Combine With</h3>
-                <div class="agenda-card" onclick="showPage('agenda-a-page')">
-                    <div class="card-time">Urban Contrast</div>
-                    <div class="card-title">Pair with a day in Central for city-nature balance.</div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Action Bar -->
-        <div class="action-bar">
-            <button class="save-agenda-btn" onclick="addToPersonal()">📅 Add to My Agenda</button>
-            <button class="purchase-btn" onclick="handlePayment()">Unlock Full Access (10 Points)</button>
-        </div>
-    </div>
-
-    <!-- Trip Planner1 Page -->
-    <div id="trip1-page" class="page">
-        <button class="plan-button" style="margin: 20px;" onclick="showTrip2()">Start a new trip</button>
-        <div class="section-title">Agendas Created</div>
-        <div class="grid-container">
-            <div class="agenda-box" style="background: var(--trip-color);">Trip 1 </div>
-            <div class="agenda-box" style="background: var(--hunt-color);">Trip 2</div>
-        </div>
-        <div class="section-title">Calendar</div>
-        <div class="calendar-container">
-            <div class="trip-day-marker">
-                <div class="green-square"></div>
-                <span>Trip Day</span>
-            </div>
-            <img src="calender.jpg" class="calendar-image" alt="Calendar">
-        </div>
-    </div>
-
-    <!-- Trip Planner2 Page -->
-    <div id="trip2-page" class="page">
-        <div class="trip-form">
-            <h2>What's your ideal trip</h2>
-            <input type="number" class="form-input" placeholder="Number of Days">
-            <input type="text" class="form-input" placeholder="Date (MM/DD/YYYY)">
-            <input type="number" class="form-input" placeholder="Budget">
-            <input type="number" class="form-input" placeholder="Number of People">
-            <input type="text" class="form-input" placeholder="Style">
-            
-            <div class="chat-container">
-                <div class="chat-avatar">
-                    <img src="robot.jpg" class="avatar" alt="Robot Avatar">
-                </div>
-                <div class="speech-bubble">
-                    What's the purpose of your trip
-                </div>
-            </div>
-            
-            <div class="ai-permission">
-                <input type="checkbox" id="ai-share" class="styled-checkbox">
-                <label for="ai-share">Allow prompt to be shared to AI engine</label>
-            </div>
-
-
-            <div class="chat-container user-chat">
-                <div class="speech-bubble user-speech-bubble">
-                    <div class="option-container">
-                        <input type="radio" id="fun" name="purpose" class="option-input">
-                        <label for="fun">For Fun</label>
-                    </div>
-                    <div class="option-container">
-                        <input type="radio" id="work" name="purpose" class="option-input">
-                        <label for="work">For Work</label>
-                    </div>
-                    <div class="option-container">
-                        <input type="radio" id="other" name="purpose" class="option-input">
-                        <label for="other">Other:</label>
-                        <input type="text" id="other-text" class="other-input" disabled>
-                    </div>
-                </div>
-                <div class="chat-avatar">
-                    <img src="smiley.jpg" class="avatar" alt="User Avatar">
-                </div>
-            </div>
-            
-            <div class="plan-button2" onclick="showPage('trip3-page')">Plan Now!</div>
-        </div>
-    </div>
-
-    <!-- Loading Page -->
-    <div id="loading-page">
-        <div class="spinner"></div>
-        <div class="loading-text">Planning Your Trip...</div>
-    </div>
-
-    <!-- Trip Planner3 Page 
-    <div id="trip3-page" class="page">
-        <div class="agenda-header">Agenda</div>
-        
-        <div class="day-section">
-            <div>Day 1</div>
-            <div class="time-place">
-                <span>10am-12am</span>
-                <div>
-                    <span>Lamma Island Village Hiking Tour</span>
-                    <button class="book-now" onclick="handleBookNow()">Book Now</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="divider">. . .</div>
-        
-        <div class="companion-section">
-            <div class="companion-title">Finding a Companion?</div>
-            <div class="companion-users">
-                <div class="user-card">
-                    <div class="user-avatar">👤</div>
-                    <div>Jack</div>
-                </div>
-                <div class="user-card">
-                    <div class="user-avatar">👤</div>
-                    <div>Daisy</div>
-                </div>
-                <div class="user-card">
-                    <div class="user-avatar">👤</div>
-                    <div>Max</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="related-agenda">
-            <div class="companion-title">Other Related Agenda</div>
-            <div class="related-trips">
-                <div class="trip-card">One Day on Lamma Island</div>
-                <div class="trip-card">A thrilling journey on Po Tai Island</div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Trip Planner 3页面 -->
-    <div id="trip3-page" class="page">
-        <!-- 顶部标题 -->
-        <div class="trip-header">
-            <h2 class="section-title">Agenda</h2>
-            <div class="title-underline"></div>
-        </div>
-
-        <!-- 日期显示 -->
-        <div class="date-display">
-            <h3>Day 1 · 4/22/2025</h3>
-        </div>
-
-        <!-- 时间地点 -->
-        <div class="time-location">
-            <div class="time">10:00 AM - 12:00 PM</div>
-            <div class="location">
-                <span>Lamma Village</span>
-                <button class="book-now" onclick="handleBookNow()">Book Now</button>
-            </div>
-        </div>
-
-        <!-- 添加事件按钮 -->
-        <button class="add-event-btn" onclick="addEvent()">
-            <span>+</span> Add Event
+      <div class="header-actions">
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">
+          <span class="language-option" data-language-option="en">EN</span>
+          <span class="toggle-divider" aria-hidden="true">/</span>
+          <span class="language-option" data-language-option="zh">中</span>
         </button>
-
-        <!-- 连接服务按钮 -->
-        <div class="connect-buttons">
-            <button class="connect-btn google" onclick="connectCalendar('google')">
-                <img src="icons/google-calendar.svg" alt=""> Connect with Google Calendar
-            </button>
-            <button class="connect-btn outlook" onclick="connectCalendar('outlook')">
-                <img src="icons/outlook.svg" alt=""> Connect to Outlook
-            </button>
-            <button class="connect-btn notion" onclick="connectCalendar('notion')">
-                <img src="icons/notion.svg" alt=""> Connect to Notion
-            </button>
-        </div>
-
-        <!-- 相关行程 -->
-        <div class="related-agenda">
-            <h3>Other Related Agenda</h3>
-            <div class="agenda-card" onclick="showPage('agenda-c-page')">
-                Two days on Lamma Island
-            </div>
-        </div>
-
-        <!-- 旅行团成员 -->
-        <div class="travel-group">
-            <div class="group-header">
-                <h3>Travel Group Member</h3>
-                <button class="group-chat-btn" onclick="createGroupChat()">Create Group Chat</button>
-            </div>
-            <div class="member-list">
-                <div class="member">
-                    <div class="avatar">JD</div>
-                    <span>John Doe</span>
-                </div>
-                <div class="member">
-                    <div class="avatar">SA</div>
-                    <span>Sarah Alpha</span>
-                </div>
-                <button class="invite-btn" onclick="showPage('invite-page')">
-                    <span>+</span> Invite Users to receive engagement points
-                </button>
-            </div>
-        </div>
-
-        <!-- 底部报告链接 -->
-        <div class="report-section">
-            <div class="divider"></div>
-            <a href="#" class="report-link">Strange Result? Report it to our Staff</a>
-        </div>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
+          <span class="sr-only">Open menu</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
 
-    <!-- Invite页面 -->
-    <div id="invite-page" class="page">
-        <!-- 头部 -->
-        <div class="invite-header">
-            <button class="back-button" onclick="showPage('trip3-page')">←</button>
-            <div class="header-title">
-                <h2>Invite</h2>
-                <div class="title-underline"></div>
-            </div>
-        </div>
+    <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation">
+      <a href="#research"><span class="lang lang-en">Research</span><span class="lang lang-zh">研究方向</span></a>
+      <a href="#publications"><span class="lang lang-en">Publications</span><span class="lang lang-zh">论文</span></a>
+      <a href="#education"><span class="lang lang-en">Education</span><span class="lang lang-zh">教育经历</span></a>
+      <a href="#contact"><span class="lang lang-en">Contact</span><span class="lang lang-zh">联系</span></a>
+    </nav>
+  </header>
 
-        <!-- 主要内容 -->
-        <div class="invite-content">
-            <!-- 我的关注者 -->
-            <div class="section">
-                <h3 class="section-title">My Followers</h3>
-                <div class="follower-grid">
-                    <div class="user-card">
-                        
-                            <div class="avatar" style="background-image: url('user1.jpg')"></div>
-                        
-                        <div class="user-name">Sarah</div>
-                    </div>
-                    <!-- 用户2/3... -->
-                    <div class="user-card">
-                       
-                            <div class="avatar" style="background-image: url('user2.jpg')"></div>
-                        
-                        <div class="user-name">Eline</div>
-                    </div>
-                    <div class="user-card">
-                       
-                            <div class="avatar" style="background-image: url('user3.jpg')"></div>
-                        
-                        <div class="user-name">John</div>
-                    </div>
-                </div>
-            </div>
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="lang lang-en">Undergraduate Research Assistant · HKU XLang Lab</span>
+            <span class="lang lang-zh">本科生研究助理 · 香港大学 XLang Lab</span>
+          </p>
 
-            <!-- 推荐用户 -->
-            <div class="section">
-                <h3 class="section-title">Other Suggestions</h3>
-                <div class="suggestion-grid">
-                    <!-- 推荐用户1 -->
-                    <div class="suggestion-card">
-                        <div class="avatar" style="background-image: url('user4.jpg')"></div>
-                        <div class="user-info">
-                            <div class="user-name">Krysty</div>
-                            <div class="tags">
-                                <span class="gender-tag">♀ Female</span>
-                                <div class="trait-group">
-                                    <span class="personality-tag">Outgoing</span>
-                                    <span class="feature-tag">Artistic</span>
-                                </div>
-                            </div>
-                            <div class="points-badge">
-                                +100 Engagement Points
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 更多推荐用户... -->
-                    <div class="suggestion-card">
-                        <div class="avatar" style="background-image: url('user6.jpg')"></div>
-                        <div class="user-info">
-                            <div class="user-name">Dylan</div>
-                            <div class="tags">
-                                <span class="gender-tag">♂ Male</span>
-                                <div class="trait-group">
-                                    <span class="personality-tag">Outgoing</span>
-                                    <span class="feature-tag">Athletic</span>
-                                </div>
-                            </div>
-                            <div class="points-badge">
-                                +100 Engagement Points
-                            </div>
-                        </div>
-                    </div>
-                    <div class="suggestion-card">
-                        <div class="avatar" style="background-image: url('user5.jpg')"></div>
-                        <div class="user-info">
-                            <div class="user-name">Daisy</div>
-                            <div class="tags">
-                                <span class="gender-tag">♀ Female</span>
-                                <div class="trait-group">
-                                    <span class="personality-tag">Introvert</span>
-                                    <span class="feature-tag">Photography</span>
-                                </div>
-                            </div>
-                            <div class="points-badge">
-                                +100 Engagement Points
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <h1>Haikong<br>Lu<span class="hero-period">.</span></h1>
 
-            <!-- 安全指南 -->
-            <a href="#" class="safety-guidelines">
-                ⚠️ Safety Guidelines when Engaging with Strangers
+          <p class="hero-statement lang lang-en">
+            Exploring <strong>Vision-Language-Action Models</strong>, <strong>Computer-Using Agents</strong>, and <strong>Embodied AI</strong>.
+          </p>
+          <p class="hero-statement lang lang-zh">
+            探索<strong>视觉—语言—动作模型</strong>、<strong>计算机使用智能体</strong>与<strong>具身智能</strong>。
+          </p>
+
+          <p class="hero-affiliation lang lang-en">
+            Undergraduate Research Assistant at HKU XLang Lab, supervised by Prof. Tao Yu. BASc in Applied Artificial Intelligence at The University of Hong Kong (2024–2028).
+          </p>
+          <p class="hero-affiliation lang lang-zh">
+            香港大学 XLang Lab 本科生研究助理，导师为陶宇教授。现就读于香港大学应用人工智能学士课程（2024–2028）。
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#publications">
+              <span class="lang lang-en">View selected work</span>
+              <span class="lang lang-zh">查看代表工作</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
             </a>
+            <a class="button button-secondary" href="mailto:u3629094@connect.hku.hk">
+              <span class="lang lang-en">Email me</span>
+              <span class="lang lang-zh">邮件联系</span>
+            </a>
+          </div>
         </div>
+
+        <aside class="portrait-card" aria-label="Portrait placeholder">
+          <img src="assets/avatar-placeholder.svg" alt="Portrait placeholder for Haikong Lu" width="760" height="920">
+          <div class="portrait-caption">
+            <span class="lang lang-en">Portrait placeholder</span>
+            <span class="lang lang-zh">个人照片占位</span>
+            <span>01 / 01</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="shell hero-index" aria-hidden="true">
+        <span>HKU · XLang</span>
+        <span>VLA / CUA / Embodied AI</span>
+        <span>2024 — 2028</span>
+      </div>
+    </section>
+
+    <section class="section about-section" id="research">
+      <div class="shell section-grid">
+        <header class="section-label">
+          <span class="section-number">01</span>
+          <h2><span class="lang lang-en">About &amp; Research</span><span class="lang lang-zh">关于我与研究方向</span></h2>
+        </header>
+
+        <div class="section-content">
+          <p class="lead lang lang-en">
+            I am an undergraduate researcher interested in building <em>reliable</em> and <em>generalizable</em> AI systems for embodied intelligence.
+          </p>
+          <p class="lead lang lang-zh">
+            我是一名本科生研究者，致力于为具身智能构建<em>可靠</em>且具备<em>泛化能力</em>的 AI 系统。
+          </p>
+
+          <p class="focus-intro lang lang-en">My current research focuses on:</p>
+          <p class="focus-intro lang lang-zh">我目前的研究主要聚焦于：</p>
+
+          <div class="focus-list">
+            <article class="focus-item">
+              <span class="focus-code">VLA</span>
+              <h3><span class="lang lang-en">Vision-Language-Action Models</span><span class="lang lang-zh">视觉—语言—动作模型</span></h3>
+              <p class="lang lang-en">Connecting visual perception, language understanding, and grounded action.</p>
+              <p class="lang lang-zh">连接视觉感知、语言理解与真实环境中的动作执行。</p>
+            </article>
+            <article class="focus-item">
+              <span class="focus-code">CUA</span>
+              <h3><span class="lang lang-en">Computer-Using Agents</span><span class="lang lang-zh">计算机使用智能体</span></h3>
+              <p class="lang lang-en">Building agents that can reliably complete complex digital tasks.</p>
+              <p class="lang lang-zh">构建能够可靠完成复杂数字任务的智能体。</p>
+            </article>
+            <article class="focus-item">
+              <span class="focus-code">EVAL</span>
+              <h3><span class="lang lang-en">Benchmarking &amp; Evaluation for Foundation Models</span><span class="lang lang-zh">基础模型基准与评测</span></h3>
+              <p class="lang lang-en">Benchmarking capabilities across realistic, long-horizon settings.</p>
+              <p class="lang lang-zh">在真实、长时程场景中评测模型能力。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section publication-section" id="publications">
+      <div class="shell section-grid">
+        <header class="section-label">
+          <span class="section-number">02</span>
+          <h2><span class="lang lang-en">Selected Publication</span><span class="lang lang-zh">代表论文</span></h2>
+        </header>
+
+        <div class="section-content">
+          <article class="publication-card">
+            <div class="publication-visual">
+              <img src="assets/osworld-placeholder.svg" alt="OSWorld V2 project image placeholder" width="1200" height="760">
+              <span class="visual-label"><span class="lang lang-en">Project visual placeholder</span><span class="lang lang-zh">项目视觉图占位</span></span>
+            </div>
+
+            <div class="publication-body">
+              <div class="publication-meta">
+                <span>OSWORLD V2</span>
+                <span>2026</span>
+              </div>
+              <h3>OSWorld V2: Benchmarking Computer-Use Agents on Long-Horizon Real-World Tasks</h3>
+
+              <p class="publication-summary lang lang-en">
+                A benchmark for evaluating computer-use agents on realistic tasks that require sustained planning and interaction over long horizons.
+              </p>
+              <p class="publication-summary lang lang-zh">
+                一个面向真实世界长时程任务的计算机使用智能体评测基准，重点考察持续规划与交互能力。
+              </p>
+
+              <details class="authors">
+                <summary><span class="lang lang-en">View full author list</span><span class="lang lang-zh">查看完整作者列表</span></summary>
+                <p>Mengqi Yuan*, Zilong Zhou*, Xinzhuang Xiong*, Weiming Wu, Jiayang Sun, Jiamin Song, Kaiqian Cui, Bowen Wang, Haoyuan Wu, Yitong Li, Dunjie Lu, <strong>Haikong Lu</strong>, Qi Zhen, Xinyuan Wang, Jiaqi Deng, Yuhao Yang, Cheng Chen, Boyuan Zheng, Alex Su, Xiao Yu, Hao Zou, Saaket Agashe, Xing Han Lu, Manpreet Kaur, Zhengyang Qi, Vincent Sunn Chen, Frederic Sala, Daiyheng Liu, Junyang Lin, Zhou Yu, Yu Su, Siva Reddy, Xin Eric Wang, Peng Qi, Tianbao Xie, Tao Yu</p>
+              </details>
+
+              <div class="publication-links" aria-label="Publication links">
+                <a href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noreferrer">Paper <span aria-hidden="true">↗</span></a>
+                <a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noreferrer">Project <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/xlang-ai/OSWorld-V2" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
+              </div>
+
+              <div class="publication-badges" aria-label="Publication metrics">
+                <img src="https://img.shields.io/github/stars/xlang-ai/OSWorld-V2?style=flat-square&amp;logo=github&amp;label=GitHub%20stars" alt="GitHub stars for OSWorld V2">
+                <img src="https://img.shields.io/badge/arXiv-2606.29537-b31b1b?style=flat-square&amp;logo=arxiv" alt="arXiv 2606.29537">
+                <img src="https://img.shields.io/badge/downloads-over%20340K-c93434?style=flat-square" alt="Over 340 thousand downloads">
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education-section" id="education">
+      <div class="shell section-grid">
+        <header class="section-label">
+          <span class="section-number">03</span>
+          <h2><span class="lang lang-en">Education</span><span class="lang lang-zh">教育经历</span></h2>
+        </header>
+
+        <div class="section-content education-content">
+          <article class="education-card">
+            <div class="education-heading">
+              <div>
+                <p class="education-school lang lang-en">The University of Hong Kong</p>
+                <p class="education-school lang lang-zh">香港大学</p>
+                <h3 class="lang lang-en">BASc in Applied Artificial Intelligence</h3>
+                <h3 class="lang lang-zh">应用人工智能学士</h3>
+              </div>
+              <time>2024 — 2028</time>
+            </div>
+
+            <div class="education-stats">
+              <div class="stat-block">
+                <span class="stat-label">CGPA</span>
+                <strong>4.07 <small>/ 4.30</small></strong>
+              </div>
+              <ul class="honours-list">
+                <li><span class="lang lang-en">Dean's Honour List</span><span class="lang lang-zh">院长荣誉名单</span><span>Year 1</span></li>
+                <li><span class="lang lang-en">Dean's Honour List</span><span class="lang lang-zh">院长荣誉名单</span><span>Year 2</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="shell contact-inner">
+        <div>
+          <p class="eyebrow contact-eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="lang lang-en">Open to research conversations</span>
+            <span class="lang lang-zh">欢迎交流研究想法</span>
+          </p>
+          <h2 class="lang lang-en">Let's explore what<br>intelligent agents can do.</h2>
+          <h2 class="lang lang-zh">一起探索智能体的<br>能力边界。</h2>
+        </div>
+
+        <div class="contact-actions">
+          <a class="contact-email" href="mailto:u3629094@connect.hku.hk">
+            <span class="contact-label"><span class="lang lang-en">Email</span><span class="lang lang-zh">电子邮箱</span></span>
+            <span>u3629094@connect.hku.hk</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg>
+          </a>
+          <a class="contact-email" href="https://github.com/Haikong-Lu1206" target="_blank" rel="noreferrer">
+            <span class="contact-label">GitHub</span>
+            <span>@Haikong-Lu1206</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>© <span data-current-year>2026</span> Haikong Lu</p>
+      <p><span class="lang lang-en">Built for curiosity, clarity, and useful agents.</span><span class="lang lang-zh">为好奇、清晰与真正有用的智能体而构建。</span></p>
+      <a href="#top"><span class="lang lang-en">Back to top</span><span class="lang lang-zh">返回顶部</span> ↑</a>
     </div>
-
-
-    <!-- Store Page -->
-    <div id="store-page" class="page">
-        <div class="store-page">
-            <div class="engagement-points">
-                Engagement Points: 615<span class="points-dot"></span>
-            </div>
-            
-            <div class="store-section">
-                <div class="section-title">Coupons</div>
-                <div class="items-container">
-                    <div class="store-item">
-                        <img src="coupon1.jpg" class="item-image" alt="Coupon 1">
-                        <div class="item-price">50<span class="price-dot"></span></div>
-                    </div>
-                    <div class="store-item">
-                        <img src="coupon2.jpg" class="item-image" alt="Coupon 2">
-                        <div class="item-price">60<span class="price-dot"></span></div>
-                    </div>
-                    <div class="store-item">
-                        <img src="coupon3.jpg" class="item-image" alt="Coupon 3">
-                        <div class="item-price">80<span class="price-dot"></span></div>
-                    </div>
-                    <div class="more-items">...</div>
-                </div>
-            </div>
-            
-            <div class="store-section">
-                <div class="section-title">Gifts</div>
-                <div class="items-container">
-                    <div class="store-item">
-                        <img src="toothbrush.jpg" class="item-image" alt="Toothbrush">
-                        <div class="item-price">550<span class="price-dot"></span></div>
-                    </div>
-                    <div class="store-item">
-                        <img src="earphone.jpg" class="item-image" alt="Earphone">
-                        <div class="item-price">1080<span class="price-dot"></span></div>
-                    </div>
-                    <div class="store-item">
-                        <img src="football.jpg" class="item-image" alt="Soccer">
-                        <div class="item-price">400<span class="price-dot"></span></div>
-                    </div>
-                    <div class="more-items">...</div>
-                </div>
-            </div>
-            
-            <div class="store-section">
-                <div class="section-title">Decorations</div>
-                <div class="items-container">
-                    <div class="store-item">
-                        <img src="decoration1.jpg" class="item-image" alt="Decoration 1">
-                        <div class="item-price">50<span class="price-dot"></span></div>
-                    </div>
-                    <div class="store-item">
-                        <img src="decoration2.jpg" class="item-image" alt="Decoration 2">
-                        <div class="item-price">50<span class="price-dot"></span></div>
-                    </div>
-                    <div class="store-item">
-                        <img src="decoration3.jpg" class="item-image" alt="Decoration 3">
-                        <div class="item-price">50<span class="price-dot"></span></div>
-                    </div>
-                    <div class="more-items">...</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scavenger Hunt Pages -->
-    <div id="scavenger1-page" class="page">
-        <div class="scavenger-content">
-            <h2>Lantau Island</h2>
-            <img src="island.jpg" class="scavenger-image">
-            <div class="scavenger-buttons">
-                <button class="scavenger-btn green-btn" onclick="handleScavengerClick(this)">
-                    Register for Individual Attempt
-                </button>
-                <button class="scavenger-btn orange-btn" onclick="handleScavengerClick(this)">
-                    Register for Group Attempt
-                </button>
-                <div class="invite-section">
-                    <button class="scavenger-btn turquoise-btn" onclick="handleInviteClick()">
-                        Invite
-                    </button>
-                    <span class="invite-text">Invite friends to get Engagement Points!</span>
-                </div>
-            </div>
-            <div class="time-info">
-                <p>Period: 1/5/2025 ~ 31/5/2025</p>
-                <p>Time limit: 3 days within launch</p>
-            </div>
-            <div class="divider"></div>
-            <h3>On-going Challenge</h3>
-            <div class="challenge-card">
-                <h4>HKU - April</h4>
-                <button class="green-button" onclick="showPage('scavenger2-page')">Start Challenge</button>
-                <div class="time-info">
-                    <p>Period: 1/4/2025 ~ 30/4/2025</p>
-                    <p>Time limit: 2 days within launch</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div id="scavenger2-page" class="page">
-        <div class="map-container">
-            <div class="map-header">
-                <h2>Google Map</h2>
-                <button class="microscope-btn" onclick="toggleFullMap()">🔍</button>
-            </div>
-            <img src="map1.jpg" class="scavenger-image" id="main-map">
-            <div id="full-map" class="full-map hidden" onclick="toggleFullMap()">
-                <img src="map2.jpg" class="full-map-image">
-            </div>
-        </div>
-        <div class="challenge-content">
-            <h3 class="underline">April Challenge</h3>
-            <h4>Checkpoints (Level 3) - Stanley Ho Region</h4>
-            <div class="checkpoint-list">
-                <div class="checkpoint yellow" onclick="showPage('scavenger3-page')">
-                    <span>3.3</span>
-                    <p> <strong>Go to the location shown in Google Map</strong></p>
-                </div>
-                <div class="checkpoint green">
-                    <span>3.2 </span>
-                    <p> <strong>Completed</strong></p>
-                </div>
-                <div class="checkpoint green">
-                    <span>3.1 </span>
-                    <p> <strong>Completed</strong></p>
-                </div>
-            </div>
-            <p class="break-text">Need a break before the next challenge?</p>
-            <div class="divider"></div>
-            <div class="sponsored">
-                <div class="sponsored-item">
-                    <p>Pthai Restaurant
-                        <span class="sponsored-mark">Sponsored</span>
-                    </p>
-                    <p class="address">Stanley Market Street 12</p>
-                    <img src="thai.jpg" class="restaurant-image" alt="Thai Restaurant">
-                </div>
-                <div class="sponsored-item">
-                    <p>Bob Milk Tea
-                        <span class="sponsored-mark">Sponsored</span>
-                    </p>
-                    <p class="address">Seymour Road 3</p>
-                    <img src="bobba.jpg" class="restaurant-image" alt="Boba Tea">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="scavenger3-page" class="page">
-        <div class="ar-container">
-            <div class="ar-header">
-                <button class="ar-button" onclick="handleClick(this)">
-                    <span class="ar-icon">👁️</span> AR Mode
-                </button>
-                <div class="ar-points">
-                    <span>Current Engagement Points: 615</span>
-                    <span class="points-dot"></span>
-                </div>
-            </div>
-            
-            <div class="ar-viewport" onclick="showPage('scavenger4-page')">
-                <img src="ar.png" class="ar-image">
-                <div class="ar-overlay">
-                    <div class="scanning-animation"></div>
-                    <p class="tap-hint">Click to activate AR</p>
-                </div>
-            </div>
-            
-            <div class="ar-instruction">
-                <div class="instruction-card">
-                    <div class="dino-icon">🦖</div>
-                    <h3>Discover a dinosaur!</h3>
-                    <p>There is a dinosaur in front of you</p>
-                </div>
-                
-                <div class="action-area">
-                    <div class="shake-prompt">
-                        <img src="shake.gif" class="shake-icon">
-                        <p>Shake your phone to defeat it!</p>
-                    </div>
-                    <div class="action-tip">
-                        <span class="tip-icon">💡</span>
-                        <p>Tap AR to see it. Shake your phone to defeat it</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="scavenger4-page" class="page">
-        <div class="completion-container">
-            <div class="achievement-badge">
-                <div class="badge-circle">
-                    <span class="badge-icon">🏆</span>
-                </div>
-                <div class="badge-ribbon"></div>
-                <span class="badge-text">Checkpoint 3.3</span>
-            </div>
-            
-            <div class="completion-status">
-                <div class="checkmark-animation">
-                    <svg class="checkmark" viewBox="0 0 52 52">
-                        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                    </svg>
-                </div>
-                <h3 class="completion-title">Challenge Accomplished!</h3>
-                <p class="completion-subtitle">Congratulations! You have defeated the dinosaur!</p>
-            </div>
-            
-            <div class="reward-card">
-                <div class="reward-header">
-                    <span class="reward-icon">🎁</span>
-                    <h4>Gain shop coupon</h4>
-                </div>
-                <p class="reward-description">You received the exclusive coupon for shop XXX!</p>
-                <img src="coupon1.jpg" class="coupon-image">
-                <div class="reward-details">
-                    <span class="discount-tag">15% OFF</span>
-                    <span class="valid-date">Valid until 2025/12/31</span>
-                </div>
-            </div>
-            
-            <div class="rarity-indicator">
-                <div class="stars">
-                    <span>⭐</span>
-                    <span>⭐</span>
-                    <span>⭐</span>
-                </div>
-                <p class="rarity-text">Only 3% of players get this award</p>
-                <button class="share-button" onclick="shareAchievement()">
-                    <span class="share-icon">📤</span> Share Achievement
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat Room界面 -->
-    <div id="chat-room-page" class="page">
-        <div class="chat-room-header">
-            <div class="chat-header-title">Messages</div>
-            <div class="new-chat-btn">✏️</div>
-        </div>
-        
-        <div class="chat-search">
-            <input type="text" placeholder="Search messages" class="chat-search-input">
-        </div>
-        
-        <div class="chat-list">
-            <!-- 联系人1 -->
-            <div class="chat-item" onclick="openChat('user1')">
-                <div class="chat-avatar" style="background: #4ECDC4;">JD</div>
-                <div class="chat-info">
-                    <div class="chat-user">John Doe</div>
-                    <div class="chat-preview">Hey! Are you ready for the trip? 🎒</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">10:30 AM</div>
-                    <div class="unread-count">2</div>
-                    <div class="unread-dot"></div>
-                </div>
-            </div>
-            
-            <!-- 联系人2 -->
-            <div class="chat-item" onclick="openChat('user2')">
-                <div class="chat-avatar" style="background: #FF6B6B;">SA</div>
-                <div class="chat-info">
-                    <div class="chat-user">Sarah Alpha</div>
-                    <div class="chat-preview">Sent a photo 📸</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">Yesterday</div>
-                    <div class="unread-count">3</div>
-                    <div class="unread-dot2"></div>
-                </div>
-            </div>
-            
-            <!-- 联系人3 -->
-            <div class="chat-item" onclick="openChat('user3')">
-                <div class="chat-avatar" style="background: #97ff6b;">FC</div>
-                <div class="chat-info">
-                    <div class="chat-user">Fraiser Crane</div>
-                    <div class="chat-preview">Sent an emoji 😊</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">Wednesday</div>
-                </div>
-            </div>
-
-            <!-- 联系人4 -->
-            <div class="chat-item" onclick="openChat('user4')">
-                <div class="chat-avatar" style="background: #fd6bff;">BS</div>
-                <div class="chat-info">
-                    <div class="chat-user">Bob Smith</div>
-                    <div class="chat-preview">LOL</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">Monday</div>
-                </div>
-            </div>
-
-            <!-- 联系人5 -->
-            <div class="chat-item" onclick="openChat('user5')">
-                <div class="chat-avatar" style="background: #7a6bff;">TS</div>
-                <div class="chat-info">
-                    <div class="chat-user">Timoth Schruff</div>
-                    <div class="chat-preview">Enjoyed the trip!</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">4/17</div>
-                </div>
-            </div>
-
-            <!-- 联系人6 -->
-            <div class="chat-item" onclick="openChat('user6')">
-                <div class="chat-avatar" style="background: #FF6B6B;">ED</div>
-                <div class="chat-info">
-                    <div class="chat-user">Elena Doyle</div>
-                    <div class="chat-preview">Sent a photo 📸</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">4/17</div>
-                </div>
-            </div>
-
-            <!-- 联系人7 -->
-            <div class="chat-item" onclick="openChat('user7')">
-                <div class="chat-avatar" style="background: #6bffeb;">NA</div>
-                <div class="chat-info">
-                    <div class="chat-user">Neal Armstrong</div>
-                    <div class="chat-preview">Sent a video</div>
-                </div>
-                <div class="chat-meta">
-                    <div class="chat-time">4/13</div>
-                </div>
-            </div>
-            <!-- 更多联系人... -->
-        </div>
-    </div>
-
-    <!-- 一对一聊天界面 -->
-    <div id="private-chat-page" class="page">
-        <div class="chat-header">
-            <button class="back-button" onclick="showPage('chat-room-page')">←</button>
-            <div class="chat-partner">
-                <div class="chat-avatar small">JD</div>
-                <div class="chat-user">John Doe</div>
-            </div>
-            <div class="chat-menu">⋮</div>
-        </div>
-        
-        <div class="chat-messages" id="message-container">
-            <!-- 消息示例 -->
-            <div class="message received">
-                <div class="message-content">Hey! Are you ready for the trip? 🎒</div>
-                <div class="message-time">10:30 AM</div>
-            </div>
-            
-            <div class="message sent">
-                <div class="message-content">Absolutely! Can't wait 😎</div>
-                <div class="message-time">10:31 AM</div>
-            </div>
-        </div>
-        
-        <div class="chat-input-area">
-            <button class="emoji-btn" onclick="toggleEmojiPicker()">😊</button>
-            <input type="text" class="chat-input" placeholder="Message..." id="message-input">
-            <label class="file-upload-btn">
-                🔗
-                <input type="file" accept="image/*" hidden id="image-upload">
-            </label>
-            <button class="send-btn" onclick="sendMessage()">↑</button>
-            
-            <div class="emoji-picker" id="emoji-picker">
-                😀 😃 😄 😁 😆 😅 😂 🤣 😊 😇 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐
-            </div>
-        </div>
-    </div>
-    <!-- Settings Page -->
-    <div id="settings-page" class="page">
-        <div class="settings-header">
-            <div class="profile-name">DucktapeDulce</div>
-            <div class="profile-status">Travel Enthusiast</div>
-        </div>
-        
-        <div class="settings-content">
-            <div class="profile-section">
-                <div class="profile-avatar">DD</div>
-                <div class="profile-info">
-                    <div class="points-display">
-                        Engagement Points: 615<span class="points-dot"></span>
-                    </div>
-                    <div style="margin-top: 5px;">Contacts: 63</div>
-                </div>
-            </div>
-            
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">👤</div>
-                    <div>Name</div>
-                </div>
-                <div>DucktapeDulce</div>
-            </div>
-            
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">♂♀</div>
-                    <div>Gender</div>
-                </div>
-                <div class="sex-selector">
-                    <div class="sex-option male selected">♂</div>
-                    <div class="sex-option female">♀</div>
-                    <div class="sex-option other">⚧</div>
-                </div>
-            </div>
-            
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">🌍</div>
-                    <div>Region</div>
-                </div>
-                <div>Hong Kong Island</div>
-            </div>
-            
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">🧠</div>
-                    <div>Personality</div>
-                </div>
-                <div class="personality-selector">
-                    <div class="personality-option">Outgoing</div>
-                    <div class="personality-option">Introvert</div>
-                </div>
-            </div>
-            
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">📝</div>
-                    <div>MBTI</div>
-                </div>
-                <input type="text" class="mbti-input" placeholder="Enter your MBTI">
-            </div>
-
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">🎂</div>
-                    <div>Birthday</div>
-                </div>
-                <div class="birthday-display">5/6/2003</div>
-            </div>
-
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">🔔</div>
-                    <div>Notifications</div>
-                </div>
-                <div class="settings-button">⚙️</div>
-            </div>
-            
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">🔒</div>
-                    <div>Privacy</div>
-                </div>
-                <div class="settings-button">⚙️</div>
-            </div>
-
-            <div class="settings-item">
-                <div class="settings-label">
-                    <div class="settings-icon">🔄</div>
-                    <div>Sync Data</div>
-                </div>
-                <div class="settings-button">⚙️</div>
-            </div>
-            
-            <div class="settings-item" style="border-bottom: none;">
-                <div class="settings-label">
-                    <div class="settings-icon">❓</div>
-                    <div>Help & Support</div>
-                </div>
-                <div class="settings-button">⚙️</div>
-            </div>
-
-            <div class="settings-item" onclick="showPage('store-page')">
-                <div class="settings-label">
-                    <div class="settings-icon">🛒</div>
-                    <div>Store</div>
-                </div>
-                <div class="store-link">View Store →</div>
-            </div> 
-        </div>
-    </div>
-
-
-    
-    <!-- 在index2.html底部导航栏前添加 -->
-    <div class="floating-post-btn" onclick="showPage('create-post-page')">+</div>
-
-    <!-- 新增发布页面 
-    <div id="create-post-page" class="page">
-        <div class="post-editor">
-            <h2>Create New Post</h2>
-            <input type="text" class="form-input" placeholder="Title">
-            <textarea class="form-input" placeholder="Content" rows="4"></textarea>
-            <input type="file" accept="image/*" class="form-input">
-            <button class="plan-button" onclick="submitPost()">Publish</button>
-        </div>
-    </div> -->
-    <div id="ar-page" class="page">
-        <div class="ar-container">
-            <div class="ar-header">
-                <button class="back-button" onclick="showPage('main-page')">←</button>
-                <div class="ar-points">
-                    <span>Current Points: 615</span>
-                    <span class="points-dot"></span>
-                </div>
-            </div>
-            
-            <div class="ar-viewport" onclick="handleARAction()">
-                <img src="https://images.pexels.com/photos/1011300/pexels-photo-1011300.jpeg" alt="AR View" class="ar-image">
-                <div class="ar-overlay">
-                    <div class="scanning-animation"></div>
-                    <p class="tap-hint">Tap to activate AR</p>
-                </div>
-            </div>
-            
-            <div class="ar-instruction">
-                <div class="instruction-card">
-                    <div class="dino-icon">🏛️</div>
-                    <h3>Ancient Buildinig Detected!</h3>
-                    <p>Point your camera at the building to learn more about it!</p>
-                </div>
-                
-                <div class="action-area">
-                    <div class="shake-prompt">
-                        <img src="https://images.pexels.com/photos/2608516/pexels-photo-2608516.jpeg" class="shake-icon">
-                        <p>Tap to interact with historical sites!</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Bottom Navigation Bar -->
-    <div class="nav-container">
-        <div class="nav-item trip-item" onclick="showPage('trip1-page')">
-            <div class="nav-icon">🗺️</div>
-            <div class="nav-label">Planner</div>
-        </div>
-        <div class="nav-item hunt-item" onclick="showPage('scavenger1-page')">
-            <div class="nav-icon">🔍</div>
-            <div class="nav-label">Hunt</div>
-        </div>
-        <div class="nav-item home-item" onclick="showPage('main-page')">
-            <div class="nav-icon">🏠</div>
-            <div class="nav-label">Home</div>
-        </div>
-        <div class="nav-item chat-item" onclick="showPage('chat-room-page')">
-            <div class="nav-icon">💬</div>
-            <div class="nav-label">Chat</div>
-        </div>
-        <div class="nav-item settings-item1" onclick="showPage('settings-page')">
-            <div class="nav-icon">⚙️</div>
-            <div class="nav-label">Settings</div>
-        </div>
-    </div> 
-
-    <script src="script2.js"></script>
+  </footer>
 </body>
 </html>

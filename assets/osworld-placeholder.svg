@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">OSWorld V2 visual placeholder</title>
+  <desc id="desc">An abstract diagram of a computer-use agent navigating a desktop environment.</desc>
+  <rect width="1200" height="760" fill="#20251f"/>
+  <g fill="none" stroke="#3f473d" stroke-width="1">
+    <path d="M0 95h1200M0 190h1200M0 285h1200M0 380h1200M0 475h1200M0 570h1200M0 665h1200"/>
+    <path d="M150 0v760M300 0v760M450 0v760M600 0v760M750 0v760M900 0v760M1050 0v760"/>
+  </g>
+  <rect x="91" y="104" width="788" height="508" rx="3" fill="#f3f2ec"/>
+  <rect x="91" y="104" width="788" height="48" fill="#d9d9d2"/>
+  <circle cx="123" cy="128" r="6" fill="#3154df"/>
+  <circle cx="146" cy="128" r="6" fill="#a9aaa4"/>
+  <circle cx="169" cy="128" r="6" fill="#a9aaa4"/>
+  <rect x="121" y="186" width="178" height="390" fill="#191d18"/>
+  <rect x="330" y="186" width="513" height="218" fill="#3154df"/>
+  <rect x="330" y="433" width="240" height="143" fill="#d9ff70"/>
+  <rect x="600" y="433" width="243" height="143" fill="#dddcd5"/>
+  <g fill="#f3f2ec">
+    <rect x="151" y="225" width="96" height="8"/>
+    <rect x="151" y="250" width="112" height="8" opacity=".5"/>
+    <rect x="151" y="303" width="102" height="8" opacity=".5"/>
+    <rect x="151" y="328" width="73" height="8" opacity=".5"/>
+  </g>
+  <g fill="none" stroke="#d9ff70" stroke-width="3">
+    <path d="M411 325c38-62 79-92 123-92 40 0 69 26 103 63 38 42 66 39 116-13"/>
+    <circle cx="411" cy="325" r="8" fill="#d9ff70"/>
+    <circle cx="534" cy="233" r="8" fill="#d9ff70"/>
+    <circle cx="637" cy="296" r="8" fill="#d9ff70"/>
+    <circle cx="753" cy="283" r="8" fill="#d9ff70"/>
+  </g>
+  <path d="m758 354 21 56 17-23 28 28 14-14-28-28 23-17Z" fill="#f3f2ec" stroke="#191d18" stroke-width="3"/>
+  <rect x="945" y="135" width="164" height="164" rx="82" fill="#d9ff70"/>
+  <text x="1027" y="235" text-anchor="middle" fill="#191d18" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">AI</text>
+  <path d="M1027 317v106H880" fill="none" stroke="#d9ff70" stroke-width="3" stroke-dasharray="9 9"/>
+  <circle cx="880" cy="423" r="8" fill="#d9ff70"/>
+  <text x="942" y="527" fill="#f3f2ec" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">PERCEIVE</text>
+  <text x="942" y="566" fill="#f3f2ec" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">PLAN</text>
+  <text x="942" y="605" fill="#d9ff70" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">ACT</text>
+  <text x="92" y="681" fill="#f3f2ec" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="-1">OSWORLD V2</text>
+  <text x="93" y="717" fill="#8d958a" font-family="Arial, Helvetica, sans-serif" font-size="17" letter-spacing="3">LONG-HORIZON COMPUTER USE</text>
+</svg>
