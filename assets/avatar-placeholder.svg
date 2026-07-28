@@ -1,17 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 920" role="img" aria-labelledby="title desc">
   <title id="title">Haikong Lu portrait placeholder</title>
-  <desc id="desc">An abstract blue and green geometric portrait placeholder with the initials HL.</desc>
-  <rect width="760" height="920" fill="#e8e7df"/>
-  <path d="M0 0h760L534 304 0 566Z" fill="#3154df"/>
-  <path d="m760 319-326 97 326 504Z" fill="#d9ff70"/>
-  <path d="m0 566 434-150 326 504H0Z" fill="#191d18"/>
-  <circle cx="380" cy="440" r="178" fill="#f3f2ec"/>
-  <path d="M267 470c21-83 79-126 125-126 58 0 111 41 129 126l35 166H226Z" fill="#3154df"/>
-  <circle cx="390" cy="361" r="92" fill="#d9ff70"/>
-  <path d="M310 361c18-64 61-96 105-96 57 0 93 37 95 95-26-24-58-36-95-36-40 0-75 12-105 37Z" fill="#191d18"/>
-  <text x="48" y="848" fill="#f3f2ec" font-family="Arial, Helvetica, sans-serif" font-size="116" font-weight="700" letter-spacing="-10">HL</text>
-  <g fill="none" stroke="#f3f2ec" stroke-width="2" opacity=".58">
-    <path d="M50 53h120M50 53v120"/>
-    <path d="M710 867H590M710 867V747"/>
-  </g>
+  <desc id="desc">A restrained abstract portrait placeholder with the initials HL.</desc>
+  <rect width="760" height="920" fill="#f0f3f4"/>
+  <path d="M0 0h760v282L0 596Z" fill="#dcebed"/>
+  <path d="M760 221v699H289Z" fill="#b7d9df"/>
+  <path d="M0 596 424 392l336 528H0Z" fill="#d9e0e2"/>
+  <circle cx="384" cy="393" r="138" fill="#f8faf9"/>
+  <path d="M230 696c22-133 82-221 154-221 78 0 139 88 160 221Z" fill="#4e5b5f"/>
+  <circle cx="384" cy="353" r="94" fill="#9fcbd4"/>
+  <path d="M297 351c13-73 61-111 107-111 57 0 99 43 102 111-31-27-67-40-106-40-40 0-74 13-103 40Z" fill="#4e5b5f"/>
+  <text x="58" y="838" fill="#3f4448" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700">HL</text>
+  <path d="M58 863h176" fill="none" stroke="#45a9c4" stroke-width="8"/>
 </svg>
