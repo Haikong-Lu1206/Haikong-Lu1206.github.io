@@ -279,26 +279,27 @@ a:focus-visible {
 
 .content {
   min-width: 0;
+  font-size: 13px;
 }
 
 .section {
-  padding: 0 0 31px;
-  margin-bottom: 31px;
+  padding: 0 0 18px;
+  margin-bottom: 18px;
   border-bottom: 1px solid var(--line);
 }
 
 .section h2 {
-  margin: 0 0 12px;
+  margin: 0 0 7px;
   color: var(--ink-strong);
-  font-size: clamp(1.7rem, 2.5vw, 2.05rem);
-  line-height: 1.2;
+  font-size: clamp(1.22rem, 1.6vw, 1.45rem);
+  line-height: 1.15;
 }
 
 .about p {
   max-width: 950px;
-  margin: 0 0 13px;
-  font-size: clamp(.98rem, 1.3vw, 1.08rem);
-  line-height: 1.55;
+  margin: 0 0 7px;
+  font-size: clamp(.82rem, 1vw, .9rem);
+  line-height: 1.48;
 }
 
 .about a,
@@ -324,30 +325,30 @@ a:focus-visible {
 }
 
 .section-heading {
-  margin-bottom: 18px;
+  margin-bottom: 9px;
 }
 
 .section-heading h2 {
-  margin-bottom: 7px;
+  margin-bottom: 3px;
 }
 
 .section-heading p {
   margin: 0;
   color: var(--muted);
-  font-size: .82rem;
+  font-size: .7rem;
 }
 
 .publication {
   display: grid;
-  grid-template-columns: 11px minmax(0, 1fr);
-  gap: 14px;
-  padding-left: 8px;
+  grid-template-columns: 7px minmax(0, 1fr);
+  gap: 10px;
+  padding-left: 4px;
 }
 
 .publication-marker {
-  width: 7px;
-  height: 7px;
-  margin-top: 14px;
+  width: 5px;
+  height: 5px;
+  margin-top: 8px;
   border-radius: 50%;
   background: var(--ink);
 }
@@ -356,23 +357,23 @@ a:focus-visible {
   display: inline;
   margin: 0;
   color: var(--ink-strong);
-  font-size: clamp(1rem, 1.5vw, 1.12rem);
-  line-height: 1.4;
+  font-size: clamp(.82rem, 1.05vw, .94rem);
+  line-height: 1.35;
 }
 
 .publication-links {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 0 0 0 8px;
-  font-size: .9rem;
+  gap: 7px;
+  margin: 0 0 0 6px;
+  font-size: .72rem;
 }
 
 .authors {
-  margin: 6px 0 2px;
+  margin: 3px 0 1px;
   color: var(--ink);
-  font-size: .86rem;
-  line-height: 1.48;
+  font-size: .72rem;
+  line-height: 1.4;
 }
 
 .authors strong {
@@ -383,8 +384,9 @@ a:focus-visible {
 }
 
 .venue {
-  margin: 2px 0 0;
+  margin: 1px 0 0;
   color: var(--muted);
+  font-size: .72rem;
   font-style: italic;
 }
 
@@ -394,67 +396,68 @@ a:focus-visible {
 
 .interest-list article {
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
-  gap: 20px;
-  padding: 10px 0;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 10px;
+  padding: 5px 0;
   border-bottom: 1px solid var(--line);
 }
 
 .interest-list article > span {
   color: var(--accent);
-  font-size: .78rem;
+  font-size: .64rem;
   font-weight: 700;
 }
 
 .interest-list h3 {
   margin: 0;
   color: var(--ink-strong);
-  font-size: .98rem;
+  font-size: .78rem;
 }
 
 .interest-list p {
-  margin: 2px 0 0;
+  margin: 1px 0 0;
   color: var(--muted);
-  font-size: .86rem;
+  font-size: .72rem;
 }
 
 .education {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 40px;
-  padding-top: 14px;
+  gap: 24px;
+  padding-top: 7px;
   border-top: 1px solid var(--line);
 }
 
 .education h3 {
   margin: 0;
   color: var(--ink-strong);
-  font-size: 1.04rem;
+  font-size: .82rem;
 }
 
 .education p {
-  margin: 2px 0 0;
+  margin: 1px 0 0;
+  font-size: .74rem;
 }
 
 .education-detail {
   color: var(--muted);
-  font-size: .82rem;
+  font-size: .68rem;
 }
 
 .education time {
   flex: 0 0 auto;
   color: var(--muted);
-  font-size: .82rem;
+  font-size: .68rem;
 }
 
 .site-footer {
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  padding: 0 0 20px;
+  padding: 0 0 10px;
   color: #969da0;
-  font-size: .78rem;
+  font-size: .64rem;
 }
 
 .site-footer p {
@@ -534,8 +537,8 @@ a:focus-visible {
   }
 
   .section {
-    margin-bottom: 52px;
-    padding-bottom: 54px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   .publication {
@@ -587,11 +590,11 @@ a:focus-visible {
   }
 
   .section h2 {
-    font-size: 1.85rem;
+    font-size: 1.25rem;
   }
 
   .about p {
-    font-size: 1.03rem;
+    font-size: .88rem;
   }
 
   .publication {
@@ -601,21 +604,21 @@ a:focus-visible {
 
   .publication-links {
     display: flex;
-    margin: 10px 0 0;
+    margin: 5px 0 0;
   }
 
   .authors {
-    font-size: .92rem;
+    font-size: .76rem;
   }
 
   .interest-list article {
-    grid-template-columns: 40px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 8px;
   }
 
   .education {
     flex-direction: column;
-    gap: 12px;
+    gap: 6px;
   }
 }
 
